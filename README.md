@@ -156,3 +156,54 @@ FROM tb_produtos
 JOIN tb_avaliacoes
 ON tb_avaliacoes.produto_id = tb_produtos.produto_id;
 -------------------------------------------------------------------------------------------------------------------------------
+
+23. Mostre todos os produtos e, se houver, as avaliações recebidas. (Inclua produtos sem avaliação) =
+SELECT produto_nome, avaliacao_comentario
+FROM tb_produtos
+JOIN tb_avaliacoes
+ON tb_avaliacoes.produto_id = tb_produtos.produto_id;
+-------------------------------------------------------------------------------------------------------------------------------
+
+24. Exiba todos os pedidos e, se houver, os pagamentos correspondentes. (Inclua pedidos sem pagamento) =
+SELECT tb_pedidos.pedido_id, pagamento_id
+FROM tb_pedidos
+JOIN tb_pagamentos
+ON tb_pagamentos.pedido_id = tb_pedidos.pedido_id;
+-------------------------------------------------------------------------------------------------------------------------------
+
+25. Exiba todos os usuários e seus pedidos, mesmo que alguns usuários ainda não tenham feito pedidos. =
+SELECT usuario_nome, pedido_id
+FROM tb_usuarios
+LEFT JOIN tb_pedidos
+ON tb_pedidos.usuario_id = tb_usuarios.usuario_id;
+-------------------------------------------------------------------------------------------------------------------------------
+
+26. Liste todos os produtos e as avaliações feitas, incluindo avaliações que não correspondem a um produto cadastrado. =
+SELECT produto_nome, avaliacao_comentario
+FROM tb_produtos
+LEFT JOIN tb_avaliacoes
+ON tb_avaliacoes.produto_id = tb_produtos.produto_id;
+-------------------------------------------------------------------------------------------------------------------------------
+
+27. Exiba todas as categorias e seus produtos, garantindo que todas as categorias apareçam mesmo que ainda não tenham produtos. =
+SELECT categoria_nome, produto_nome
+FROM tb_categorias
+LEFT JOIN tb_produtos_categorias
+ON tb_produtos_categorias.categoria_id = tb_categorias.categoria_id
+LEFT JOIN tb_produtos
+ON tb_produtos.produto_id = tb_produtos_categorias.produto_id;
+-------------------------------------------------------------------------------------------------------------------------------
+
+28. Liste todos os produtos e todas as avaliações, garantindo que produtos sem avaliação e avaliações sem produto cadastrado apareçam. =
+SELECT produto_nome, avaliacao_comentario
+FROM tb_produtos
+LEFT JOIN tb_avaliacoes
+ON tb_avaliacoes.produto_id = tb_produtos.produto_id;
+-------------------------------------------------------------------------------------------------------------------------------
+
+29. Exiba todos os usuários e seus pedidos, garantindo que usuários sem pedidos e pedidos sem usuário válido apareçam. =
+SELECT usuario_nome, pedido_id
+FROM tb_usuarios
+LEFT JOIN tb_pedidos
+ON tb_pedidos.usuario_id = tb_usuarios.usuario_id;
+-------------------------------------------------------------------------------------------------------------------------------
