@@ -1,4 +1,4 @@
-# Multiplas-Tabelas
+# Multiplas-Tabelas SQL
 Criação de tabelas usando MySql do ambiente PHP.
 
 1. Liste todos os pedidos, incluindo o nome do cliente.
